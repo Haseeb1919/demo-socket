@@ -38,13 +38,16 @@ def handle_client(con, addr):
             
             if msg == "turn on":
                  device_state = "on".encode(FORMAT)
+                 print(f"[{addr}] Device is now ON")
+
             elif msg == "turn off":
                 device_state = "off".encode(FORMAT)
-            elif msg == "quit":
-                if device_state == "on".encode(FORMAT):
-                    print(f"[{addr}] Device was ON for: {total_on_time:.2f} seconds")
-                connected = False
+                print(f"[{addr}] Device is now OFF")
 
+            elif msg == "quit":
+                print(f"[{addr}] Client is quitting...")
+                break
+             
 
             else:
                 print(f"[{addr}] Unknown command: {msg}")
